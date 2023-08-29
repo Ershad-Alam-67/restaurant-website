@@ -1,0 +1,7 @@
+.zoomed-image {
+  width: 105%;
+  height: 100%;
+  margin-left: -5%;
+  margin-top: -20px;
+  overflow: hidden;
+}
