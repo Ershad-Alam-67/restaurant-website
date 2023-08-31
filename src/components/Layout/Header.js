@@ -4,9 +4,9 @@ import bg_img from "../../assets/meals.jpg"
 import "./Header.css"
 const Header = () => {
   return (
-    <div className=" bg-zinc-800 h-screen">
+    <div className=" h-auto bg-transparent">
       <header>
-        <div className="header fixed top-0 left-0 w-full h-16 bg-mycolor text-white flex justify-between items-center px-10 box-shadow z-10">
+        <div className="header fixed top-0 left-0 w-full h-16 bg-mycolor text-white flex justify-between items-center px-10 box-shadow z-20">
           <div>
             <h1 className=" ml-14 font-bold text-white text-xl">ReactMeals</h1>
           </div>
@@ -30,7 +30,7 @@ const Header = () => {
           />
         </div>
       </div>
-      <div className=" w-[35rem] h-[12rem] bg-zinc-700 absolute z-50 top-[11rem]  left-[29%] rounded-xl shadow-black shadow-md">
+      <div className=" w-[35rem] h-[12rem] bg-zinc-700 absolute z-10 top-[11rem] descr  left-[29%] rounded-xl shadow-black shadow-md">
         <h1 className="text-white font-bold  flex justify-center mt-2 text-2xl">
           Delicious Food, Delivered To You
         </h1>
