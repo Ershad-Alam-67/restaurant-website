@@ -1,4 +1,4 @@
-const dataset = [
+const Dataset = [
   {
     id: "m1",
     name: "Sushi",
@@ -24,4 +24,4 @@ const dataset = [
     price: 18.99,
   },
 ]
-export default dataset
+export default Dataset

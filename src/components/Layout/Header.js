@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useState, useContext } from "react"
 import cart from "../../assets/cart_icon.png"
 import bg_img from "../../assets/meals.jpg"
 import "./Header.css"
+import { MyContext } from "../Cart/CartData"
 const Header = (props) => {
+  const { cartData, cartDataHandler, count } = useContext(MyContext)
+
   const setShowModal = () => {
     props.showModalHandler(true)
   }
@@ -22,7 +25,7 @@ const Header = (props) => {
                 <img src={cart} className=" mr-2 w-7 h-7"></img>
               </div>
               <h1 className="mr-2  ">Your Cart</h1>
-              <div className=" bg-orange-800 w-8 rounded-2xl ml-2">0</div>
+              <div className=" bg-orange-800 w-8 rounded-2xl ml-2">{count}</div>
             </button>
           </div>
         </div>
