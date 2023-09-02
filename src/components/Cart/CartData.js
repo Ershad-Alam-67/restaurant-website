@@ -11,7 +11,9 @@ const CartData = ({ children }) => {
       return [...pre, newdata]
     })
   }
-
+  const updateCart = (updatedCart) => {
+    setCartData(updatedCart)
+  }
   useEffect(() => {
     let cnt = 0
     let tot = 0
@@ -23,7 +25,9 @@ const CartData = ({ children }) => {
     setTotal(tot.toFixed(2))
   }, [cartData])
   return (
-    <MyContext.Provider value={{ cartData, cartDataHandler, count, total }}>
+    <MyContext.Provider
+      value={{ cartData, cartDataHandler, count, total, updateCart }}
+    >
       {children}
     </MyContext.Provider>
   )

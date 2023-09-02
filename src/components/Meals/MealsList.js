@@ -8,7 +8,7 @@ const MealsList = () => {
     const item = Dataset.find((item) => item.id === id)
     const cnt = document.getElementById(id).value
     if (parseInt(cnt) > 0) {
-      cartDataHandler({ name: item.name, price: item.price, cnt: cnt })
+      cartDataHandler({ name: item.name, price: item.price, cnt: cnt, id: id })
     }
   }
   return (

@@ -2,9 +2,35 @@ import ReactDOM from "react-dom"
 import React, { useContext, useState } from "react"
 import { MyContext } from "../Cart/CartData"
 const Modal = (props) => {
-  const { cartData, cartDataHandler, count, total } = useContext(MyContext)
+  const { cartData, cartDataHandler, count, total, updateCart } =
+    useContext(MyContext)
   const setShowModal = () => {
     props.showModalHandler(false)
+  }
+  const deleteItem = (id) => {
+    const updatedCart = cartData
+      .map((item) => {
+        if (item.id === id) {
+          if (item.cnt - 1 === 0) {
+            return null
+          } else {
+            return { ...item, cnt: item.cnt - 1 }
+          }
+        }
+        return item
+      })
+      .filter((num) => num !== null)
+    updateCart(updatedCart)
+  }
+  const addItem = (id) => {
+    const updatedCart = cartData.map((item) => {
+      if (item.id === id) {
+        return { ...item, cnt: parseInt(item.cnt) + 1 }
+      }
+      return item
+    })
+
+    updateCart(updatedCart)
   }
 
   return ReactDOM.createPortal(
@@ -21,10 +47,20 @@ const Modal = (props) => {
                 x {item.cnt}
               </div>
               <div className=" ml-40 mt-5">
-                <button className=" border-orange-800 rounded-md border-[1px] mt-2 px-4 mr-2  h-6  ">
+                <button
+                  onClick={() => {
+                    addItem(item.id)
+                  }}
+                  className=" border-orange-800 rounded-md border-[1px] mt-2 px-4 mr-2  h-6  "
+                >
                   +
                 </button>
-                <button className="border-[1px]  border-orange-800 rounded-md  mt-2 px-4  h-6 ">
+                <button
+                  onClick={() => {
+                    deleteItem(item.id)
+                  }}
+                  className="border-[1px]  border-orange-800 rounded-md  mt-2 px-4  h-6 "
+                >
                   -
                 </button>
               </div>
